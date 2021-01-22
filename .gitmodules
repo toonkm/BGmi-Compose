@@ -1,0 +1,3 @@
+[submodule "BGmi-Dockerlized"]
+	path = BGmi-Dockerlized
+	url = https://github.com/toonkm/BGmi-Dockerlized.git

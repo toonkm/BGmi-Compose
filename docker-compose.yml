@@ -1,0 +1,37 @@
+version: "3.0"
+services: 
+  bgmi:
+    links: 
+      - bt
+    build: ./BGmi-Dockerlized
+    environment: 
+      - DATA_SOURCE=mikan_project
+      - DOWNLOAD_DELEGATE=transmission-rpc
+      - ADMIN_TOKEN=fukhak
+      - TRANSMISSION_RPC_URL=bt
+    volumes:
+      - ./app:/app
+      - ./data:/data
+  web:
+    links: 
+      - bgmi
+    image: nginx
+    ports: 
+      - 80:80
+    volumes: 
+      - ./nginx:/etc/nginx/conf.d
+      - ./app:/usr/share/nginx/app
+      - ./data:/usr/share/nginx/data
+  bt:
+    image: linuxserver/transmission
+    environment: 
+      - PUID=0
+      - PGID=0
+      - TRANSMISSION_WEB_HOME=/transmission-web-control/
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    volumes: 
+      - ./data:/data
+      - ./transmission/config:/config
