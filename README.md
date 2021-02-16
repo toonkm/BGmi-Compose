@@ -13,6 +13,12 @@ toonkm/BGmi, Nginx, Transmission
 
 ## 安裝
 
+先下載本git
+
+```
+git clone --recurse-submodules https://github.com/toonkm/BGmi-Dockerlized.git
+```
+
 服務啓動前記得先修改docker-compose.yml內的ADMIN_TOKEN，這個是前端管理用的
 
 ```
