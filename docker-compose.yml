@@ -7,7 +7,7 @@ services:
     environment: 
       - DATA_SOURCE=mikan_project
       - DOWNLOAD_DELEGATE=transmission-rpc
-      - ADMIN_TOKEN=fukhak
+      - ADMIN_TOKEN=1234
       - TRANSMISSION_RPC_URL=bt
     volumes:
       - ./app:/app
